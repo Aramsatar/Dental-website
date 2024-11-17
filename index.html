@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADental Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <nav class="sidebar" aria-label="Main navigation">
+            <!-- Menu Icon -->
+            <button class="nav-item" title="Toggle Menu" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+                <span>Menu</span>
+            </button>
+            
+            <!-- Logo and Clinic Info -->
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-square"></div>
+                    <span class="logo-text">ADental</span>
+                </div>
+                <div class="clinic-info">
+                    <h2>Ardin Clinic</h2>
+                    <p>Erbil, Erbil Governorate</p>
+                </div>
+            </div>
+            
+            <!-- Navigation Icons -->
+            <button class="nav-item" title="Dashboard" aria-label="Dashboard">
+                <i data-lucide="layout-grid"></i>
+                <span>Dashboard</span>
+            </button>
+            <button class="nav-item" title="Reservation" aria-label="Reservation">
+                <i data-lucide="calendar"></i>
+                <span>Reservation</span>
+            </button>
+            <button class="nav-item" title="Patients" aria-label="Patients">
+                <i data-lucide="users"></i>
+                <span>Patients</span>
+            </button>
+            <button class="nav-item" title="Supply Management" aria-label="Supply Management">
+                <i data-lucide="box"></i>
+                <span>Supply</span>
+            </button>
+            <button class="nav-item" title="Sales" aria-label="Sales">
+                <i data-lucide="dollar-sign"></i>
+                <span>Sales</span>
+            </button>
+            <button class="nav-item" title="Settings" aria-label="Settings">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <h1><!-- Page Title --></h1>
+                    <div class="header-actions">
+                        <!-- Search with Label -->
+                        <div class="search-wrapper">
+                            <label for="searchInput" class="search-label">
+                                <i data-lucide="search"></i>
+                                <input 
+                                    id="searchInput" 
+                                    type="text" 
+                                    placeholder="Search for anything here..." 
+                                    aria-label="Search"
+                                >
+                            </label>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                            <button class="icon-btn" title="Add New" aria-label="Add New">
+                                <i data-lucide="plus"></i>
+                            </button>
+                            <button class="icon-btn" title="Help" aria-label="Help">
+                                <i data-lucide="help-circle"></i>
+                            </button>
+                            <button class="icon-btn" title="Statistics" aria-label="Statistics">
+                                <i data-lucide="bar-chart-2"></i>
+                            </button>
+                            <button class="icon-btn" title="Settings" aria-label="Settings">
+                                <i data-lucide="settings"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- User Profile -->
+                        <div class="user-profile">
+                            <div class="user-info">
+                                <div class="name">Darrell Steward</div>
+                                <div class="role">Super admin</div>
+                            </div>
+                            <div class="avatar">
+                                <img src="image.png" alt="Darrell Steward">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Cashflow Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Cashflow</h3>
+                        <select title="Time Period">
+                            <option>Last 12 month</option>
+                            <option>Last 6 month</option>
+                            <option>Last 30 days</option>
+                        </select>
+                    </div>
+                    <div class="card-content">
+                        <div class="stat-value">
+                            $13,232 <span class="trend-up">4.51%</span>
+                        </div>
+                        <p class="text-sm">January 2022 - December 2022</p>
+                        <canvas id="cashflowChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Expenses Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Expenses</h3>
+                        <select title="Time Period">
+                            <option>Last 6 month</option>
+                            <option>Last 12 month</option>
+                            <option>Last 30 days</option>
+                        </select>
+                    </div>
+                    <div class="card-content">
+                        <div class="stat-value">$132.34</div>
+                        <canvas id="expensesChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Income & Expense Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Income & Expense</h3>
+                        <select title="Time Period">
+                            <option>Last 6 month</option>
+                            <option>Last 12 month</option>
+                            <option>Last 30 days</option>
+                        </select>
+                    </div>
+                    <div class="card-content">
+                        <div class="flex justify-between mb-4">
+                            <div>
+                                <p class="text-sm font-medium">TOTAL INCOME</p>
+                                <p class="stat-value">$1,412 <span class="trend-up">4.51%</span></p>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium">TOTAL EXPENSES</p>
+                                <p class="stat-value">$812.34 <span class="trend-down">2.41%</span></p>
+                            </div>
+                        </div>
+                        <canvas id="incomeExpenseChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Patients Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Patients</h3>
+                        <select title="Time Period">
+                            <option>This month</option>
+                            <option>Last month</option>
+                            <option>This year</option>
+                        </select>
+                    </div>
+                    <div class="card-content">
+                        <div class="flex justify-between mb-4">
+                            <div>
+                                <p class="stat-value">21</p>
+                                <p class="text-sm">New patients</p>
+                            </div>
+                            <div>
+                                <p class="stat-value">142</p>
+                                <p class="text-sm">Returning patients</p>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-segment" style="width: 36.52%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span>36.52%</span>
+                            <span>61.41%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popular Treatment Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Popular Treatment</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="treatment-list">
+                            <li>
+                                <span>Scaling Teeth</span>
+                                <span class="rating">
+                                    <i data-lucide="star" class="star-icon"></i>
+                                    4.7
+                                </span>
+                            </li>
+                            <li>
+                                <span>Tooth Extraction</span>
+                                <span class="rating">
+                                    <i data-lucide="star" class="star-icon"></i>
+                                    4.4
+                                </span>
+                            </li>
+                            <li>
+                                <span>General Checkup</span>
+                                <span class="rating">
+                                    <i data-lucide="star" class="star-icon"></i>
+                                    4.6
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Stock Availability Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Stock availability</h3>
+                        <button class="view-all-btn">View all</button>
+                    </div>
+                    <div class="card-content">
+                        <div class="flex justify-between mb-4">
+                            <div>
+                                <p class="text-sm font-medium">TOTAL ASSET</p>
+                                <p class="stat-value">$53,000</p>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium">TOTAL PRODUCT</p>
+                                <p class="stat-value">442</p>
+                            </div>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar">
+                                <div class="progress-segment available"></div>
+                                <div class="progress-segment low-stock"></div>
+                                <div class="progress-segment out-of-stock"></div>
+                            </div>
+                            <div class="progress-legend">
+                                <span><span class="legend-dot available"></span>Available</span>
+                                <span><span class="legend-dot low-stock"></span>Low Stock</span>
+                                <span><span class="legend-dot out-of-stock"></span>Out of stock</span>
+                            </div>
+                        </div>
+                        <div class="low-stock-list">
+                            <p class="text-sm font-medium">LOW STOCK:</p>
+                            <ul>
+                                <li>
+                                    <span>Dental Brush</span>
+                                    <div>
+                                        <span class="qty">Qty: 3</span>
+                                        <button class="order-btn">Order</button>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>Charmflex Regular</span>
+                                    <div>
+                                        <span class="qty">Qty: 2</span>
+                                        <button class="order-btn">Order</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html> 

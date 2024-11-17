@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADental - Sales Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <nav class="sidebar" aria-label="Main navigation">
+            <!-- Menu Icon -->
+            <button class="nav-item" title="Toggle Menu" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+                <span>Menu</span>
+            </button>
+            
+            <!-- Logo and Clinic Info -->
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-square"></div>
+                    <span class="logo-text">ADental</span>
+                </div>
+                <div class="clinic-info">
+                    <h2>Ardin Clinic</h2>
+                    <p>Erbil, Erbil Governorate</p>
+                </div>
+            </div>
+            
+            <!-- Navigation Icons -->
+            <button class="nav-item" title="Dashboard" aria-label="Dashboard">
+                <i data-lucide="layout-grid"></i>
+                <span>Dashboard</span>
+            </button>
+            <button class="nav-item" title="Reservation" aria-label="Reservation">
+                <i data-lucide="calendar"></i>
+                <span>Reservation</span>
+            </button>
+            <button class="nav-item" title="Patients" aria-label="Patients">
+                <i data-lucide="users"></i>
+                <span>Patients</span>
+            </button>
+            <button class="nav-item" title="Supply Management" aria-label="Supply Management">
+                <i data-lucide="box"></i>
+                <span>Supply</span>
+            </button>
+            <button class="nav-item active" title="Sales" aria-label="Sales">
+                <i data-lucide="dollar-sign"></i>
+                <span>Sales</span>
+            </button>
+            <button class="nav-item" title="Settings" aria-label="Settings">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </button>
+        </nav>
+
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <h1><!-- Page Title --></h1>
+                    <div class="header-actions">
+                        <!-- Search with Label -->
+                        <div class="search-wrapper">
+                            <label for="searchInput" class="search-label">
+                                <i data-lucide="search"></i>
+                                <input 
+                                    id="searchInput" 
+                                    type="text" 
+                                    placeholder="Search for anything here..." 
+                                    aria-label="Search"
+                                >
+                            </label>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                            <button class="icon-btn" title="Add New" aria-label="Add New">
+                                <i data-lucide="plus"></i>
+                            </button>
+                            <button class="icon-btn" title="Help" aria-label="Help">
+                                <i data-lucide="help-circle"></i>
+                            </button>
+                            <button class="icon-btn" title="Statistics" aria-label="Statistics">
+                                <i data-lucide="bar-chart-2"></i>
+                            </button>
+                            <button class="icon-btn" title="Settings" aria-label="Settings">
+                                <i data-lucide="settings"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- User Profile -->
+                        <div class="user-profile">
+                            <div class="user-info">
+                                <div class="name">Darrell Steward</div>
+                                <div class="role">Super admin</div>
+                            </div>
+                            <div class="avatar">
+                                <img src="image.png" alt="Darrell Steward">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Sales Dashboard Content -->
+            <div class="sales-container">
+                <!-- Stats Cards -->
+                <div class="stats-row">
+                    <div class="card stat-card">
+                        <div class="card-header">
+                            <h3>Revenue this month</h3>
+                            <i data-lucide="dollar-sign"></i>
+                        </div>
+                        <div class="card-content">
+                            <div class="stat-value">$32,621.00</div>
+                            <p class="trend trend-up">
+                                <i data-lucide="arrow-up-right"></i>
+                                +2.5% from last month
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="card-header">
+                            <h3>Profit this month</h3>
+                            <i data-lucide="dollar-sign"></i>
+                        </div>
+                        <div class="card-content">
+                            <div class="stat-value">$12,486.00</div>
+                            <p class="trend trend-down">
+                                <i data-lucide="arrow-down-right"></i>
+                                -0.8% from last month
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls-row">
+                    <select class="date-range-select" title="Select date range">
+                        <option>1 May 2021 - 30 May 2021</option>
+                        <option>1 Jun 2021 - 30 Jun 2021</option>
+                        <option>1 Jul 2021 - 30 Jul 2021</option>
+                    </select>
+                    <button class="export-btn">
+                        <i data-lucide="download"></i>
+                        Export
+                    </button>
+                </div>
+
+                <!-- Sales Overview -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Sales Overview</h2>
+                        <p class="subtitle">A list of all sales transactions</p>
+                    </div>
+                    <div class="card-content">
+                        <table class="sales-table">
+                            <thead>
+                                <tr>
+                                    <th>Patient Name</th>
+                                    <th>Number of Bill</th>
+                                    <th>Reservation Date</th>
+                                    <th>Total Amount</th>
+                                    <th>Payment</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="salesTableBody">
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Recent Payments -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Recent Payments</h2>
+                        <p class="subtitle">A list of recent payment transactions</p>
+                    </div>
+                    <div class="card-content">
+                        <table class="payments-table">
+                            <thead>
+                                <tr>
+                                    <th>Bill ID</th>
+                                    <th>Patient Name</th>
+                                    <th>Reservation Number</th>
+                                    <th>Reservation Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="paymentsTableBody">
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html> 

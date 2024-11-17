@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients - Healthcare Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar" aria-label="Main navigation">
+            <!-- Menu Icon -->
+            <button class="nav-item" title="Toggle Menu" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+                <span>Menu</span>
+            </button>
+            
+            <!-- Logo and Clinic Info -->
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-square"></div>
+                    <span class="logo-text">ADental</span>
+                </div>
+                <div class="clinic-info">
+                    <h2>Ardin Clinic</h2>
+                    <p>Erbil, Erbil Governorate</p>
+                </div>
+            </div>
+            
+            <!-- Navigation Icons -->
+            <button class="nav-item" title="Dashboard" aria-label="Dashboard">
+                <i data-lucide="layout-grid"></i>
+                <span>Dashboard</span>
+            </button>
+            <button class="nav-item" title="Reservation" aria-label="Reservation">
+                <i data-lucide="calendar"></i>
+                <span>Reservation</span>
+            </button>
+            <button class="nav-item" title="Patients" aria-label="Patients">
+                <i data-lucide="users"></i>
+                <span>Patients</span>
+            </button>
+            <button class="nav-item" title="Supply Management" aria-label="Supply Management">
+                <i data-lucide="box"></i>
+                <span>Supply</span>
+            </button>
+            <button class="nav-item" title="Sales" aria-label="Sales">
+                <i data-lucide="dollar-sign"></i>
+                <span>Sales</span>
+            </button>
+            <button class="nav-item" title="Settings" aria-label="Settings">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </button>
+        </nav>
+
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <h1><!-- Page Title --></h1>
+                    <div class="header-actions">
+                        <!-- Search with Label -->
+                        <div class="search-wrapper">
+                            <label for="searchInput" class="search-label">
+                                <i data-lucide="search"></i>
+                                <input 
+                                    id="searchInput" 
+                                    type="text" 
+                                    placeholder="Search for anything here..." 
+                                    aria-label="Search"
+                                >
+                            </label>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                            <button class="icon-btn" title="Add New" aria-label="Add New">
+                                <i data-lucide="plus"></i>
+                            </button>
+                            <button class="icon-btn" title="Help" aria-label="Help">
+                                <i data-lucide="help-circle"></i>
+                            </button>
+                            <button class="icon-btn" title="Statistics" aria-label="Statistics">
+                                <i data-lucide="bar-chart-2"></i>
+                            </button>
+                            <button class="icon-btn" title="Settings" aria-label="Settings">
+                                <i data-lucide="settings"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- User Profile -->
+                        <div class="user-profile">
+                            <div class="user-info">
+                                <div class="name">Darrell Steward</div>
+                                <div class="role">Super admin</div>
+                            </div>
+                            <div class="avatar">
+                                <img src="image.png" alt="Darrell Steward">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Patient Management Section -->
+            <div class="patients-container">
+                <!-- Tabs -->
+                <div class="tabs" role="tablist">
+                    <button class="tab active" role="tab" aria-selected="true" data-tab="all">
+                        All Patients
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" data-tab="active">
+                        Active Patients
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" data-tab="inactive">
+                        Inactive Patients
+                    </button>
+                </div>
+
+                <!-- Search and Actions -->
+                <div class="actions-bar">
+                    <div class="search-filters">
+                        <div class="search-container">
+                            <i data-lucide="search" aria-hidden="true"></i>
+                            <input 
+                                type="text" 
+                                placeholder="Search patients..." 
+                                aria-label="Search patients"
+                            >
+                        </div>
+                        <button class="filter-btn" aria-label="Filter patients">
+                            <i data-lucide="filter" aria-hidden="true"></i>
+                            <span>Filters</span>
+                        </button>
+                    </div>
+                    <button class="add-patient-btn" aria-label="Add new patient">
+                        <i data-lucide="plus" aria-hidden="true"></i>
+                        <span>Add New Patient</span>
+                    </button>
+                </div>
+
+                <!-- Patients Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Patient List</h2>
+                    </div>
+                    <div class="card-content">
+                        <table class="patients-table" aria-label="Patients list">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Last Visit</th>
+                                    <th scope="col">Next Appointment</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col" aria-label="Actions"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="patientsTableBody">
+                                <!-- Table content will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" role="navigation" aria-label="Pagination">
+                    <span class="pagination-info" aria-live="polite">
+                        Showing <span id="startIndex">1</span> to <span id="endIndex">10</span> of <span id="totalPatients">0</span> patients
+                    </span>
+                    <div class="pagination-controls">
+                        <button 
+                            class="pagination-btn" 
+                            id="prevPage" 
+                            title="Previous page" 
+                            aria-label="Go to previous page"
+                        >
+                            <i data-lucide="chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <select 
+                            id="pageSelect" 
+                            title="Select page" 
+                            aria-label="Select page number"
+                        >
+                            <!-- Options populated by JavaScript -->
+                        </select>
+                        <button 
+                            class="pagination-btn" 
+                            id="nextPage" 
+                            title="Next page" 
+                            aria-label="Go to next page"
+                        >
+                            <i data-lucide="chevron-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html> 

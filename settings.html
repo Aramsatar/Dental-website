@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADental - Settings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="settings.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <nav class="sidebar" aria-label="Main navigation">
+            <!-- Menu Icon -->
+            <button class="nav-item" title="Toggle Menu" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+                <span>Menu</span>
+            </button>
+            
+            <!-- Navigation Icons -->
+            <button class="nav-item" title="Dashboard" aria-label="Dashboard">
+                <i data-lucide="layout-grid"></i>
+                <span>Dashboard</span>
+            </button>
+            <button class="nav-item" title="Reservation" aria-label="Reservation">
+                <i data-lucide="calendar"></i>
+                <span>Reservation</span>
+            </button>
+            <button class="nav-item" title="Patients" aria-label="Patients">
+                <i data-lucide="users"></i>
+                <span>Patients</span>
+            </button>
+            <button class="nav-item" title="Supply Management" aria-label="Supply Management">
+                <i data-lucide="box"></i>
+                <span>Supply</span>
+            </button>
+            <button class="nav-item" title="Sales" aria-label="Sales">
+                <i data-lucide="dollar-sign"></i>
+                <span>Sales</span>
+            </button>
+            <button class="nav-item active" title="Settings" aria-label="Settings">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </button>
+        </nav>
+
+        <div class="main-container">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <h1>Settings</h1>
+                    <div class="header-actions">
+                        <div class="search-wrapper">
+                            <label for="searchInput" class="search-label">
+                                <i data-lucide="search"></i>
+                                <input 
+                                    id="searchInput" 
+                                    type="text" 
+                                    placeholder="Search for anything here..." 
+                                    aria-label="Search"
+                                >
+                            </label>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="icon-btn" title="Add New">
+                                <i data-lucide="plus"></i>
+                            </button>
+                            <button class="icon-btn" title="Help">
+                                <i data-lucide="help-circle"></i>
+                            </button>
+                            <button class="icon-btn" title="Statistics">
+                                <i data-lucide="bar-chart-2"></i>
+                            </button>
+                            <button class="icon-btn" title="Settings">
+                                <i data-lucide="settings"></i>
+                            </button>
+                        </div>
+                        <div class="user-profile">
+                            <div class="user-info">
+                                <div class="name">Darrell Steward</div>
+                                <div class="role">Super admin</div>
+                            </div>
+                            <div class="avatar">
+                                <img src="image.png" alt="Darrell Steward">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Settings Tabs -->
+                <div class="tabs" role="tablist">
+                    <button class="tab active" role="tab" aria-selected="true" data-tab="profile">
+                        <i data-lucide="user"></i>
+                        Profile
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" data-tab="clinic">
+                        <i data-lucide="building"></i>
+                        Clinic Info
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" data-tab="notifications">
+                        <i data-lucide="bell"></i>
+                        Notifications
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" data-tab="security">
+                        <i data-lucide="shield"></i>
+                        Security
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" data-tab="billing">
+                        <i data-lucide="credit-card"></i>
+                        Billing
+                    </button>
+                </div>
+
+                <!-- Profile Section -->
+                <div class="settings-section active" id="profile">
+                    <h2>Profile Settings</h2>
+                    <div class="profile-info card">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <img src="image.png" alt="Profile Picture">
+                                <button class="change-avatar-btn">
+                                    <i data-lucide="camera"></i>
+                                    Change Photo
+                                </button>
+                            </div>
+                            <div class="profile-details">
+                                <h3>Personal Information</h3>
+                                <p>Update your photo and personal details here</p>
+                            </div>
+                        </div>
+                        <form class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" value="Darrell">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" value="Steward">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" value="darrell@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" value="+1 (555) 000-0000">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary">Cancel</button>
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html> 

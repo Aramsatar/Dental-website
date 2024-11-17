@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADental - Appointments</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="reservation.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <nav class="sidebar" aria-label="Main navigation">
+            <!-- Menu Icon -->
+            <button class="nav-item" title="Toggle Menu" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+                <span>Menu</span>
+            </button>
+            
+            <!-- Logo and Clinic Info -->
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-square"></div>
+                    <span class="logo-text">ADental</span>
+                </div>
+                <div class="clinic-info">
+                    <h2>Ardin Clinic</h2>
+                    <p>Erbil, Erbil Governorate</p>
+                </div>
+            </div>
+            
+            <!-- Navigation Icons -->
+            <button class="nav-item" title="Dashboard" aria-label="Dashboard">
+                <i data-lucide="layout-grid"></i>
+                <span>Dashboard</span>
+            </button>
+            <button class="nav-item active" title="Reservation" aria-label="Reservation">
+                <i data-lucide="calendar"></i>
+                <span>Reservation</span>
+            </button>
+            <button class="nav-item" title="Patients" aria-label="Patients">
+                <i data-lucide="users"></i>
+                <span>Patients</span>
+            </button>
+            <button class="nav-item" title="Supply Management" aria-label="Supply Management">
+                <i data-lucide="box"></i>
+                <span>Supply</span>
+            </button>
+            <button class="nav-item" title="Sales" aria-label="Sales">
+                <i data-lucide="dollar-sign"></i>
+                <span>Sales</span>
+            </button>
+            <button class="nav-item" title="Settings" aria-label="Settings">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </button>
+        </nav>
+
+        <div class="main-container">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <h1><!-- Page Title --></h1>
+                    <div class="header-actions">
+                        <!-- Search with Label -->
+                        <div class="search-wrapper">
+                            <label for="searchInput" class="search-label">
+                                <i data-lucide="search"></i>
+                                <input 
+                                    id="searchInput" 
+                                    type="text" 
+                                    placeholder="Search for anything here..." 
+                                    aria-label="Search"
+                                >
+                            </label>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                            <button class="icon-btn" title="Add New" aria-label="Add New">
+                                <i data-lucide="plus"></i>
+                            </button>
+                            <button class="icon-btn" title="Help" aria-label="Help">
+                                <i data-lucide="help-circle"></i>
+                            </button>
+                            <button class="icon-btn" title="Statistics" aria-label="Statistics">
+                                <i data-lucide="bar-chart-2"></i>
+                            </button>
+                            <button class="icon-btn" title="Settings" aria-label="Settings">
+                                <i data-lucide="settings"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- User Profile -->
+                        <div class="user-profile">
+                            <div class="user-info">
+                                <div class="name">Darrell Steward</div>
+                                <div class="role">Super admin</div>
+                            </div>
+                            <div class="avatar">
+                                <img src="image.png" alt="Darrell Steward">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Appointment Calendar Section -->
+                <div class="appointment-section">
+                    <div class="appointment-header">
+                        <h2>Appointment Calendar</h2>
+                        <button class="check-new-btn">
+                            <i data-lucide="plus"></i>
+                            Check new!
+                        </button>
+                    </div>
+
+                    <!-- Control Buttons -->
+                    <div class="control-buttons">
+                        <div class="left-controls">
+                            <button class="control-btn">
+                                <i data-lucide="filter"></i>
+                                Filter
+                            </button>
+                            <button class="control-btn">
+                                <i data-lucide="calendar"></i>
+                                Monthly
+                            </button>
+                            <button class="control-btn">
+                                <i data-lucide="download"></i>
+                                Download Data
+                            </button>
+                        </div>
+                        <div class="right-controls">
+                            <button class="icon-btn" title="Time Settings">
+                                <i data-lucide="clock"></i>
+                            </button>
+                            <button class="icon-btn" title="Settings">
+                                <i data-lucide="settings"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Calendar Section -->
+                    <div class="calendar-section">
+                        <div class="calendar-header">
+                            <div class="calendar-title">
+                                <h3>Appointment Calendar</h3>
+                                <div class="help-badge">?</div>
+                            </div>
+                            <div class="calendar-controls">
+                                <button class="control-btn">None</button>
+                                <button class="control-btn">Priority</button>
+                                <button class="control-btn">Deadline</button>
+                                <button class="icon-btn" title="Time View">
+                                    <i data-lucide="clock"></i>
+                                </button>
+                                <button class="icon-btn" title="Notifications">
+                                    <i data-lucide="bell"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Doctor Appointment List -->
+                    <div class="doctor-list">
+                        <h3>Doctor Appointment List</h3>
+                        <div class="doctor-cards">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                        <button class="see-all-btn">See All</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="reservation.js"></script>
+</body>
+</html> 
